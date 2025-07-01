@@ -1,2 +1,18 @@
 venv/
 data/
+
+# Ignore saved model weights
+*.pth
+*.pt
+*.bin
+
+# Optional: ignore entire model folder
+outputs/models/
+models/
+
+# Ignore tokenizer or cache files (if using transformers)
+*.json
+*.txt
+*.model
+*.tokenizer
+.cache/
