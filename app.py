@@ -14,8 +14,8 @@ DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ------------------------ Load model ------------------------
 st.set_page_config(page_title="BERT Fake News Classifier", layout="centered")
-st.title("📰 BERT Fake News Classifier")
-st.caption("Fine-tuned BERT model on WELFake dataset")
+st.title("Fake News Detection Using NLP and Deep Learning")
+st.caption("Fine-tuned BERT model")
 
 @st.cache_resource
 def load_model():
@@ -52,6 +52,6 @@ if st.button("Classify"):
     else:
         label, confidence = predict(news_input.strip())
         if label == "REAL":
-            st.success(f"✅ Prediction: REAL news (Confidence: {confidence})")
+            st.success(f" Prediction: REAL news (Confidence: {confidence})")
         else:
-            st.error(f"❌ Prediction: FAKE news (Confidence: {confidence})")
+            st.error(f" Prediction: FAKE news (Confidence: {confidence})")
