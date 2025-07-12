@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pkl
+*.pt
+*.pth
+outputs/models/*.pth
+data/
+*.csv
+*.parquet
+.cache/
