@@ -32,7 +32,7 @@ project_root/
 
 ### 1. WELFake (Primary Dataset)
 
-* \~72,000 articles
+* ∼72,000 articles
 * Columns: title, text, label (1=real, 0=fake)
 * Split: 70% train, 15% val, 15% test
 
@@ -48,7 +48,7 @@ project_root/
 
 We evaluated a wide range of models:
 
-###  Traditional ML Models (TF-IDF based)
+### Traditional ML Models (TF-IDF based)
 
 * Naive Bayes
 * Logistic Regression
@@ -60,11 +60,11 @@ We evaluated a wide range of models:
 * LSTM + GloVe embeddings
 * CNN + GloVe embeddings
 
-###  Transformer Model
+### Transformer Model
 
 * Fine-tuned BERT (bert-base-uncased)
 
-###  Hybrid Model
+### Hybrid Model
 
 * BERT + CNN + BiLSTM
 * Fusion of semantic (BERT), local pattern (CNN), and sequence (LSTM)
@@ -82,7 +82,7 @@ We evaluated a wide range of models:
 | LSTM + GloVe        | 96.8%            | 0.968      | 72.7%                | 0.648          |
 | CNN + GloVe         | 96.5%            | 0.965      | 73.2%                | 0.648          |
 | Fine-tuned BERT     | 98.2%            | 0.982      | 69.3%                | 0.66           |
-| Hybrid Model        | 96.7%            | 0.967      | 73.5%                | 0.67           |
+| Hybrid Model        | 95.9%            | 0.959      | 71.3%                | 0.651          |
 
 ---
 
@@ -95,7 +95,7 @@ We chose the Fine-tuned BERT model for final deployment based on:
 * ✅ Simpler architecture than hybrid (faster inference)
 * ✅ Works well with Streamlit deployment
 
-Although the hybrid model performed slightly better on cross-domain (FakeNewsNet), BERT had the best performance where we had labels and was significantly simpler to deploy.
+Although the hybrid model performed decently on cross-domain (FakeNewsNet), its F1-score for fake class detection was lower. BERT offered better performance and stability in live settings.
 
 ---
 
@@ -103,9 +103,9 @@ Although the hybrid model performed slightly better on cross-domain (FakeNewsNet
 
 A Streamlit app was built for live testing:
 
-- Users can input a news headline or full text
-- The model predicts: "REAL" or "FAKE"
-- Confidence score is shown
+* Users can input a news headline or full text
+* The model predicts: "REAL" or "FAKE"
+* Confidence score is shown
 
 Example Input:
 ![Streamlit Input](assets/fake.png)
@@ -113,10 +113,7 @@ Example Input:
 Example Output:
 ![Streamlit Output](assets/real.png)
 
-
 To run the app:
-```bash
-streamlit run app.py
 
 ```bash
 streamlit run app.py
@@ -124,7 +121,7 @@ streamlit run app.py
 
 ---
 
-##  How the Model Classifies News
+## How the Model Classifies News
 
 The models classify based on:
 
@@ -134,8 +131,6 @@ The models classify based on:
 * BERT models learn deep semantic patterns (contextual understanding)
 
 But note: It does not fact-check — it classifies based on how similar the input is to training examples.
-
-
 
 ---
 
@@ -157,6 +152,8 @@ But note: It does not fact-check — it classifies based on how similar the inpu
 
 ---
 
-##  Conclusion
+## Conclusion
 
-This project explored multiple approaches to fake news detection and delivered a practical, interpretable, and high-performing solution using fine-tuned BERT. With support for real-time inference via Streamlit and solid performance across datasets, it’s ready for real-world deployment and academic publication.
+This project explored multiple approaches to fake news detection and delivered a practical, interpretable, and high-performing solution using fine-tuned BERT. With support for real-time inference via Streamlit and solid performance across datasets, it’s ready for real-world deployment and academic presentation.
+
+Our hybrid architecture, combining BERT + CNN + BiLSTM, represents a novel experimentation approach that highlights the trade-offs between model complexity and performance across domains.

@@ -16,3 +16,6 @@ models/
 *.model
 *.tokenizer
 .cache/
+
+
+Research_Proposal/*.pdf
